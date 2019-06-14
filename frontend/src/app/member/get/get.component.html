@@ -1,0 +1,53 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="selectAll">
+                  <label for="selectAll"></label>
+              </span>
+            </th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of memberItems">
+            <!-- วนลูปคำสั่ง memberItems-->
+            <td>
+                <span class="custom-checkbox">
+                  <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                  <label for="checkbox1"></label>
+              </span>
+            </td>
+            <td>{{ item.mem_name }}</td>
+            <td>{{ item.mem_email }}</td>
+            <td>{{ item.mem_address || '-'}}</td>
+            <td>{{ item.mem_phone }}</td>
+            <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal" (click)="onEditModul(item)"> <!-- คลิกเพื่อโยนค่า -->
+                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                </a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal" (click)="onDeleteModal(item)">
+                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="clearfix">
+    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+    <ul class="pagination">
+        <li class="page-item disabled"><a href="#">Previous</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item active"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>
+</div>
